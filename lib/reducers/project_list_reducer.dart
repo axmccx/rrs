@@ -3,18 +3,19 @@ import 'package:rrs/models/models.dart';
 import 'package:rrs/actions/actions.dart';
 
 final projectListReducer = combineReducers<Map<String,Project>>([
-  TypedReducer<Map<String,Project>, AppProjectAction>(_addProject),
+  TypedReducer<Map<String,Project>, CreateProjectAction>(_addProject),
 ]);
 
 Map<String,Project> _addProject(
     Map<String,Project> projectList,
-    AppProjectAction action) {
+    CreateProjectAction action) {
   // new project
   Project newProj = Project(id: action.name);
 
   // add it to the map, and return it
-  projectList[action.name] = newProj;
-  return projectList;
+  Map<String,Project> newProjectList = Map.of(projectList);
+  newProjectList[action.name] = newProj;
+  return newProjectList;
 
   // dispatch update_schedule
   // only if the current day schedule isn't already filled?

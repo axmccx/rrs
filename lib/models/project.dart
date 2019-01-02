@@ -8,4 +8,13 @@ class Project {
     this.priority,
     this.timeQuantum,
   });
+
+  @override
+  String toString() {
+    return 'Project{'
+    'id: $id, '
+    'priority: $priority, '
+    'timeQuantum: $timeQuantum'
+    '}';
+  }
 }

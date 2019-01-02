@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rrs/containers/containers.dart';
 
 class HomeScreen extends StatelessWidget {
   final int priority;
@@ -19,7 +20,14 @@ class HomeScreen extends StatelessWidget {
             ),
             RaisedButton(
               child: new Text('New project'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return CreateProject();
+                  },
+                ));
+              }
             )
           ],
         )

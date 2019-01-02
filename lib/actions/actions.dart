@@ -1,13 +1,13 @@
-class AppProjectAction {
+class CreateProjectAction {
   final String name;
   // final "date" dueDate;
   // final int timeToFinish;
 
-  AppProjectAction(this.name);
+  CreateProjectAction(this.name);
 
   @override
   String toString() {
-    return 'AppProjectAction{name: $name}';
+    return 'CreateProjectAction{name: $name}';
   }
 }
 

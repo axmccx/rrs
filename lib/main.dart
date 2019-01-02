@@ -18,7 +18,6 @@ class RrsApp extends StatelessWidget {
     initialState: AppState(),
     middleware: []
       ..add(LoggingMiddleware.printer()),
-
   ) {
     //store.dispatch(InitAppAction());
   }
