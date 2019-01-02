@@ -1,5 +1,3 @@
-import 'package:rrs/models/models.dart';
-
 class AppProjectAction {
   final String name;
   // final "date" dueDate;
@@ -25,10 +23,6 @@ class DoWork {
 }
 
 class UpdateSchedule {
-  final List<DayTask> daySchedule;
-
-  UpdateSchedule(this.daySchedule);
-
   @override
   String toString() {
     return 'UpdateSchedule{}';

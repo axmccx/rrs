@@ -3,11 +3,11 @@ class DayTask {
   final time;
   final int priority;
 
-  DayTask({
+  DayTask(
     this.id,
     this.time,
     this.priority,
-  });
+  );
 
   @override
   String toString() {

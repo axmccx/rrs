@@ -9,5 +9,5 @@ final dayScheduleReducer = combineReducers<List<DayTask>>([
 List<DayTask> _updateSchedule(
     List<DayTask> daySchedule,
     UpdateSchedule action) {
-  return action.daySchedule;
+  return daySchedule;
 }

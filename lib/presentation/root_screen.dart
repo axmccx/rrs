@@ -1,19 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:rrs/models/models.dart';
-import 'package:rrs/containers/containers.dart';
-//import 'package:rrs/presentation/home_screen.dart';
+import 'package:rrs/presentation/home_screen.dart';
 
 class RootScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Today")
-        ),
-        body: Container(),
+    return StoreConnector<AppState, _ViewModel>(
+      distinct: true,
+      converter: _ViewModel.fromStore,
+      builder: (context, vm) {
+        return HomeScreen(vm.pri);
+      },
+    );
+  }
+}
+
+class _ViewModel {
+  final int pri;
+
+  _ViewModel(
+    this.pri,
+  );
+
+  static _ViewModel fromStore(Store<AppState> store) {
+    return _ViewModel(
+      store.state.curPriority
     );
   }
 }
