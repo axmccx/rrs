@@ -25,7 +25,7 @@ class CreateProject extends StatelessWidget {
             _onComplete,
             _onFail,
           ));
-          store.dispatch(UpdateSchedule());
+          store.dispatch(UpdateScheduleAction());
         };
       },
       builder: (context, onSave) {

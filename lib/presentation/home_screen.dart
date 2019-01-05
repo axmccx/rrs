@@ -3,6 +3,7 @@ import 'package:rrs/containers/containers.dart';
 import 'package:rrs/models/models.dart';
 import 'package:rrs/presentation/day_task_list.dart';
 
+
 class HomeScreen extends StatelessWidget {
   final List<DayTask> dayTasks;
   final int priority;
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         child: new ListView(
           children: <Widget>[
             DrawerHeader(
-              child: new Text("DRAWER HEADER.."),
+              child: new Text("Header"),
               decoration: new BoxDecoration(
                 color: Colors.orange
               ),
@@ -37,6 +38,16 @@ class HomeScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         title: Text("Tasks"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) {
+              return ReportWorkTime();
+            },
+          ));
+        },
+        child: Icon(Icons.access_time),
       ),
       body: Container(
         child: Column(

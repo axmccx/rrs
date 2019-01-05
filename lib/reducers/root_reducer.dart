@@ -3,7 +3,7 @@ import 'package:rrs/reducers/reducers.dart';
 import 'package:rrs/actions/actions.dart';
 
 AppState rootReducer(AppState state, action) {
-  if (action is UpdateSchedule) {
+  if (action is UpdateScheduleAction) {
     List<DayTask> newDaySchedule = [];
     int currentPriority = 1;
 

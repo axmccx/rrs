@@ -1,3 +1,5 @@
+import 'package:rrs/models/models.dart';
+
 class CreateProjectAction {
   final String name;
   final Function onComplete;
@@ -13,31 +15,32 @@ class CreateProjectAction {
   }
 }
 
-class DoWork {
+class DoWorkAction {
+  final Project project;
   final int time;
 
-  DoWork(this.time);
+  DoWorkAction(this.project, this.time);
 
   @override
   String toString() {
-    return 'DoWork{time: $time}';
+    return 'DoWorkAction{project: $project, time: $time}';
   }
 }
 
-class UpdateSchedule {
+class UpdateScheduleAction {
   @override
   String toString() {
-    return 'UpdateSchedule{}';
+    return 'UpdateScheduleAction{}';
   }
 }
 
-class UpdatePriority {
+class UpdatePriorityAction {
   final int newPri;
 
-  UpdatePriority(this.newPri);
+  UpdatePriorityAction(this.newPri);
 
   @override
   String toString() {
-    return 'UpdateSchedule{}';
+    return 'UpdatePriorityAction{newPri: $newPri}';
   }
 }

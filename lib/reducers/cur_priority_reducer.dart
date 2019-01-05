@@ -2,11 +2,11 @@ import 'package:redux/redux.dart';
 import 'package:rrs/actions/actions.dart';
 
 final curPriorityReducer = combineReducers<int>([
-  TypedReducer<int, UpdatePriority>(_updateCurPriority)
+  TypedReducer<int, UpdatePriorityAction>(_updateCurPriority)
 ]);
 
 int _updateCurPriority(
     int curPriority,
-    UpdatePriority action) {
+    UpdatePriorityAction action) {
   return action.newPri;
 }
