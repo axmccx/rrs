@@ -3,11 +3,11 @@ class Project {
   final int priority;
   final timeQuantum;
 
-  Project({
+  Project(
     this.id,
     this.priority,
     this.timeQuantum,
-  });
+  );
 
   @override
   String toString() {

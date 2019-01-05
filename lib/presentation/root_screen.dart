@@ -11,21 +11,27 @@ class RootScreen extends StatelessWidget {
       distinct: true,
       converter: _ViewModel.fromStore,
       builder: (context, vm) {
-        return HomeScreen(vm.pri);
+        return HomeScreen(
+          vm.dayTasks,
+          vm.pri
+        );
       },
     );
   }
 }
 
 class _ViewModel {
+  final List<DayTask> dayTasks;
   final int pri;
-
+  
   _ViewModel(
-    this.pri,
+    this.dayTasks,
+    this.pri
   );
 
   static _ViewModel fromStore(Store<AppState> store) {
     return _ViewModel(
+      store.state.daySchedule,
       store.state.curPriority
     );
   }

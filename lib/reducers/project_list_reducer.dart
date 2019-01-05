@@ -9,15 +9,14 @@ final projectListReducer = combineReducers<Map<String,Project>>([
 Map<String,Project> _addProject(
     Map<String,Project> projectList,
     CreateProjectAction action) {
-  // new project
-  Project newProj = Project(id: action.name);
+  if (projectList.containsKey(action.name)) {
+    action.onFail("Project already exists!");
+    return projectList;
+  }
 
-  // add it to the map, and return it
+  Project newProj = Project(action.name, 1, 120);
   Map<String,Project> newProjectList = Map.of(projectList);
   newProjectList[action.name] = newProj;
+  action.onComplete();
   return newProjectList;
-
-  // dispatch update_schedule
-  // only if the current day schedule isn't already filled?
-  // store.dispatch(UpdateSchedule());
 }

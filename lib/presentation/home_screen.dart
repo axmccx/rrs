@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:rrs/containers/containers.dart';
+import 'package:rrs/models/models.dart';
+import 'package:rrs/presentation/day_task_list.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<DayTask> dayTasks;
   final int priority;
 
-  HomeScreen(this.priority);
+  HomeScreen(this.dayTasks, this.priority);
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +39,25 @@ class HomeScreen extends StatelessWidget {
         title: Text("Tasks"),
       ),
       body: Container(
-        child: Text(
-          "The current priority is: $priority",
-          style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.w400,
-              ),
+        child: Column(
+          children: <Widget>[
+            Text(
+              "The current priority is: $priority",
+              style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+            ),
+            Padding(padding: EdgeInsets.all(10)),
+            Text(
+              "Work on the following Tasks",
+              style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+            ),
+            DayTaskList(dayTasks),
+          ],
         ),
       ),
     );

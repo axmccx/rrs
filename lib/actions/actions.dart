@@ -1,9 +1,11 @@
 class CreateProjectAction {
   final String name;
+  final Function onComplete;
+  final Function onFail;
   // final "date" dueDate;
   // final int timeToFinish;
 
-  CreateProjectAction(this.name);
+  CreateProjectAction(this.name, this.onComplete, this.onFail);
 
   @override
   String toString() {

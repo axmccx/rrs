@@ -11,17 +11,21 @@ class CreateProject extends StatelessWidget {
     return StoreConnector<AppState, OnSubmit>(
       converter: (Store<AppState> store) {
         return (context, scaffoldKey, projectName) {
-          // _onComplete() {
-          //   Navigator.pop(context);
-          // }
-          // _onFail(error) {
-          //   final snackBar = SnackBar(
-          //     content: Text(error),
-          //   );
-          //   scaffoldKey.currentState.showSnackBar(snackBar);
-          // }
-          store.dispatch(CreateProjectAction(projectName));
-          Navigator.pop(context);
+          _onComplete() {
+            Navigator.pop(context);
+          }
+          _onFail(error) {
+            final snackBar = SnackBar(
+              content: Text(error),
+            );
+            scaffoldKey.currentState.showSnackBar(snackBar);
+          }
+          store.dispatch(CreateProjectAction(
+            projectName,
+            _onComplete,
+            _onFail,
+          ));
+          store.dispatch(UpdateSchedule());
         };
       },
       builder: (context, onSave) {

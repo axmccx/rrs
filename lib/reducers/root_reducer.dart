@@ -7,7 +7,7 @@ AppState rootReducer(AppState state, action) {
     List<DayTask> newDaySchedule = [];
     int currentPriority = 1;
 
-    List<Project> allProjects = state.projectList.values;
+    List<Project> allProjects = state.projectList.values.toList();
     int dayScheduleTime = 0;
     int i = 0;  // iterator for the allProjects list
 
